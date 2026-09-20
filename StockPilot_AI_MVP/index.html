@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StockPilot AI</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-mark">✦</span><div><b>StockPilot</b><small>AI Research Desk</small></div></div>
+    <nav>
+      <button class="nav active" data-page="home">⌂ <span>Home</span></button>
+      <button class="nav" data-page="discover">◉ <span>Discover</span></button>
+      <button class="nav" data-page="research">✦ <span>AI Research</span></button>
+      <button class="nav" data-page="watchlist">☆ <span>Watchlist</span></button>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="status-dot"><i></i> Demo data mode</div>
+      <p>Research tool — not investment advice.</p>
+    </div>
+  </aside>
+
+  <main>
+    <header class="topbar">
+      <button class="mobile-menu" id="menu">☰</button>
+      <div class="search-wrap">⌕ <input id="globalSearch" placeholder="Search stocks, e.g. NVDA"></div>
+      <button class="icon-btn">◐</button><button class="avatar">SP</button>
+    </header>
+
+    <section id="home" class="page active-page">
+      <div class="hero">
+        <div><span class="eyebrow">AI-POWERED EQUITY RESEARCH</span><h1>Research smarter.<br><em>Understand faster.</em></h1>
+        <p>StockPilot turns market information into structured, evidence-aware research — so you can investigate ideas in one place.</p>
+        <button class="primary" onclick="showPage('research')">✦ Start AI research</button></div>
+        <div class="hero-card"><div class="mini-label">MARKET PULSE</div><div class="pulse"><span>NASDAQ</span><b>+1.14%</b></div><div class="pulse"><span>S&amp;P 500</span><b>+0.82%</b></div><div class="pulse"><span>BTC</span><b>+2.03%</b></div><small>Illustrative demo data</small></div>
+      </div>
+      <div class="section-head"><div><h2>AI Insights</h2><p>Demo observations generated from the included sample dataset.</p></div><button class="ghost" onclick="showPage('discover')">Explore stocks →</button></div>
+      <div class="cards" id="insightCards"></div>
+    </section>
+
+    <section id="discover" class="page">
+      <div class="section-head"><div><span class="eyebrow">DISCOVER</span><h2>Explore equities</h2><p>Search the sample universe and open a research brief.</p></div></div>
+      <div class="stock-grid" id="stockGrid"></div>
+    </section>
+
+    <section id="research" class="page">
+      <div class="research-head"><div><span class="eyebrow">AI RESEARCH DESK</span><h2>Ask StockPilot</h2><p>Turn a question into a structured research brief.</p></div>
+      <div class="ticker-pill" id="selectedTicker">NVDA · NVIDIA</div></div>
+      <div class="research-layout">
+        <div class="chat-panel">
+          <div class="suggestions">
+            <button onclick="setPrompt('Analyze NVIDIA\\'s recent performance')">Analyze recent performance</button>
+            <button onclick="setPrompt('What are the biggest risks?')">Biggest risks</button>
+            <button onclick="setPrompt('What changed recently?')">What changed?</button>
+          </div>
+          <textarea id="prompt" placeholder="Ask a research question...">Analyze NVIDIA's recent performance</textarea>
+          <button class="primary full" onclick="runResearch()">✦ Generate research</button>
+          <div class="disclaimer">StockPilot is a research prototype. Its outputs are informational and may contain errors.</div>
+        </div>
+        <div class="report" id="report">
+          <div class="report-placeholder">Your research report will appear here.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="watchlist" class="page">
+      <div class="section-head"><div><span class="eyebrow">WATCHLIST</span><h2>Your research list</h2><p>Saved locally in this demo.</p></div></div>
+      <div class="watch-list" id="watchList"></div>
+    </section>
+  </main>
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>
